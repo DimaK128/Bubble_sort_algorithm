@@ -53,7 +53,7 @@ public class Part_1 {
     private static int[] getUserInputArray(int n) {
         Scanner scanner = new Scanner(System.in);
         int[] arr = new int[n];
-        System.out.println("Enter " + n + " integers:");
+        System.out.println("Enter " + n + "numbers:");
         for (int i = 0; i < n; i++) {
             arr[i] = scanner.nextInt();
         }
