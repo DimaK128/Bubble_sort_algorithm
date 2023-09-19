@@ -44,7 +44,7 @@ public class Part_1 {
         int[] arr = new int[n];
         Random random = new Random();
         for (int i = 0; i < n; i++) {
-            arr[i] = random.nextInt(100); // Adjust the range as needed
+            arr[i] = random.nextInt(100);
         }
         return arr;
     }
