@@ -60,7 +60,7 @@ public class Part_1 {
         return arr;
     }
 
-    // Method to perform the bubble sort algorithm
+    // Method of  the bubble sort algorithm
     private static void bubbleSort(int[] arr) {
         int n = arr.length;
         boolean swapped;
