@@ -12,15 +12,15 @@ public class Part_1 {
             System.out.println("Enter the number of elements: ");
             n = scanner.nextInt();
 
-            System.out.println("Choose an option (1 for random values, 2 for user input): ");
-            int choice = scanner.nextInt();
+            System.out.println("Choose an option (random for random values, user for user input): ");
+            String choice = scanner.next().toLowerCase(); // Convert the input to lowercase for case-insensitive comparison
 
-            if (choice == 1) {
+            if (choice.equals("random")) {
                 arr = generateRandomArray(n);
-            } else if (choice == 2) {
+            } else if (choice.equals("user")) {
                 arr = getUserInputArray(n);
             } else {
-                System.out.println("Invalid choice. Please enter 1 or 2.");
+                System.out.println("Invalid choice. Please enter 'random' or 'user'.");
                 continue;
             }
 
@@ -32,8 +32,8 @@ public class Part_1 {
             System.out.println("Sorted array:");
             printArray(arr);
 
-            System.out.println("Do you want to repeat the process? (1 for Yes and 0 for No): ");
-        } while (scanner.nextInt() == 1);
+            System.out.println("Do you want to repeat the process? (yes for Yes and no for No): ");
+        } while (scanner.next().equalsIgnoreCase("yes"));
 
         System.out.println("Have a nice day! :D!");
         scanner.close();
@@ -76,7 +76,7 @@ public class Part_1 {
                 }
             }
             if (!swapped) {
-                break; // If no two elements were swapped in inner loop, the array is already sorted
+                break; // If no two elements were swapped in the inner loop, the array is already sorted
             }
         }
     }
