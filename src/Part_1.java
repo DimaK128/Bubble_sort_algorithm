@@ -13,7 +13,7 @@ public class Part_1 {
             n = scanner.nextInt();
 
             System.out.println("Choose an option (random for random values, user for user input): ");
-            String choice = scanner.next().toLowerCase(); // Convert the input to lowercase for case-insensitive comparison
+            String choice = scanner.next();
 
             if (choice.equals("random")) {
                 arr = generateRandomArray(n);
@@ -32,10 +32,10 @@ public class Part_1 {
             System.out.println("Sorted array:");
             printArray(arr);
 
-            System.out.println("Do you want to repeat the process? (yes for Yes and no for No): ");
+            System.out.println("Do you want to repeat the process? (yes or no): ");
         } while (scanner.next().equalsIgnoreCase("yes"));
 
-        System.out.println("Have a nice day! :D!");
+        System.out.println("Have a nice day! :D");
         scanner.close();
     }
 
@@ -60,7 +60,7 @@ public class Part_1 {
         return arr;
     }
 
-    // Method of  the bubble sort algorithm
+    // Method of the bubble sort algorithm
     private static void bubbleSort(int[] arr) {
         int n = arr.length;
         boolean swapped;
@@ -76,7 +76,8 @@ public class Part_1 {
                 }
             }
             if (!swapped) {
-                break; // If no two elements were swapped in the inner loop, the array is already sorted
+                break;
+                // If no two elements were swapped in the inner loop, the array is already sorted
             }
         }
     }
