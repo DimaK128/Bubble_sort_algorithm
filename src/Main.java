@@ -7,20 +7,20 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         do {
-            System.out.print("Enter the number of elements: ");
+            System.out.println("Enter the number of elements: ");
             int n = scanner.nextInt();
 
             int[] arr;
 
-            System.out.print("Do you want to generate values or input them yourself? (1 - Generate, 2 - Input): ");
-            int choice = scanner.nextInt();
+            System.out.println("Do you want to generate random values or input them by yourself? (Random/Input): ");
+            String choice = scanner.next();
 
-            if (choice == 1) {
+            if (choice.equalsIgnoreCase("Random")) {
                 arr = generateRandomArray(n);
-            } else if (choice == 2) {
-                arr = getInputArray(n);
+            } else if (choice.equalsIgnoreCase("Input")) {
+                arr = getInputArray(n, scanner);
             } else {
-                System.out.println("Invalid choice. Please enter 1 or 2.");
+                System.out.println("Invalid choice. Please enter 'generate' or 'input'.");
                 continue;
             }
 
@@ -32,10 +32,10 @@ public class Main {
             System.out.println("Sorted array:");
             printArray(arr);
 
-            System.out.print("Do you want to repeat? (1 - Yes, 2 - No): ");
-            int repeat = scanner.nextInt();
+            System.out.println("Do you want to repeat? (Yes/No): ");
+            String repeat = scanner.next();
 
-            if (repeat != 1) {
+            if (!repeat.equalsIgnoreCase("yes")) {
                 break;
             }
 
@@ -52,16 +52,14 @@ public class Main {
             swapped = false;
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    // Swap arr[j] and arr[j+1]
-                    int temp = arr[j];
+                    int temp = arr[j];                                    // Swap arr[j] and arr[j+1]
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                     swapped = true;
                 }
             }
             if (!swapped) {
-                // If no two elements were swapped in inner loop, the array is already sorted
-                break;
+                break; // If no two elements were swapped in inner loop, the array is already sorted and it stops
             }
         }
     }
@@ -70,25 +68,26 @@ public class Main {
         int[] arr = new int[n];
         Random rand = new Random();
         for (int i = 0; i < n; i++) {
-            arr[i] = rand.nextInt(100); // Generate random values between 0 and 99
+            arr[i] = rand.nextInt(100);      // Generates random values from 1 to 100
         }
         return arr;
     }
 
-    public static int[] getInputArray(int n) {
-        Scanner scanner = new Scanner(System.in);
+    public static int[] getInputArray(int n, Scanner scanner) {
         int[] arr = new int[n];
         System.out.println("Enter " + n + " elements:");
+
         for (int i = 0; i < n; i++) {
+            System.out.print("Element #" + (i + 1) + ": ");
             arr[i] = scanner.nextInt();
         }
-        return arr;
+
+        return arr;                           // Here user types elements of his array and that array returns back
     }
 
     public static void printArray(int[] arr) {
-        for (int value : arr) {
-            System.out.print(value + " ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Element #" + (i + 1) + ": " + arr[i]);   // Prints elements of our array
         }
-        System.out.println();
     }
 }
