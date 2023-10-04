@@ -76,7 +76,6 @@ public class Main {
             System.out.print("Element #" + (i + 1) + ": ");
             arr[i] = scanner.nextInt();
         }
-
         return arr;                           // Here user types elements of his array and that array returns back
     }
 
