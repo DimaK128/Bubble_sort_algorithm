@@ -37,7 +37,6 @@ public class With_loop_optimisation {
         // Outer loop
         int n = arr.length;
         boolean swapped = true;
-
         for (int i = 0; i < n - 1 && swapped; i++) {
             swapped = false;
 // The outer loop optimization works by initializing a boolean variable swapped to true before the outer loop.

@@ -46,10 +46,12 @@ public class Without_any_loop {
     }
 
     public static void bubbleSort(int[] arr) {
+        // Outer loop: Iterates over the array until no more swaps will be made.
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
-            // Outer loop: Iterates over the array until no more swaps will be made.
 
+
+            // Inner loop : Compares nearby elements and swaps them if they are in the wrong order.
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
@@ -59,9 +61,6 @@ public class Without_any_loop {
             }
         }
     }
-    // Inner loop : Compares nearby elements and swaps them if they are in the wrong order.
-
-
     public static int[] generateRandomArray(int n) {
         int[] arr = new int[n];
         Random rand = new Random();
